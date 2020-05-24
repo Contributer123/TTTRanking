@@ -121,6 +121,8 @@
   
 download_data("https://clwo.eu/jailbreak/api/v2/ttt_stats.php");
 
+let ranking_limit = 10;
+
 let ranking_top_traitor = [];
 let ranking_most_identified_bodies = [];
 let ranking_shopping_queen = [];
@@ -181,7 +183,6 @@ function init_ranking(target_id, number_of_players, limit)
 
 function display_top_killed_traitor_data()
 {
-  let ranking_limit = 10;
   init_ranking("most_killed_traitor", ranking_top_traitor.length, ranking_limit);
 
   for(let i = 0; i < ranking_top_traitor.length; i++)
@@ -217,7 +218,6 @@ function display_top_killed_traitor_data()
 
 function display_top_traitor_data()
 {
-  let ranking_limit = 10;
   init_ranking("most_killed_ranking", ranking_top_traitor.length, ranking_limit);
 
   for(let i = 0; i < ranking_top_traitor.length; i++)
@@ -254,7 +254,6 @@ function display_top_traitor_data()
 
 function display_shopping_queen_data()
 {
-  let ranking_limit = 10;
   init_ranking("shopping_queen_ranking", ranking_shopping_queen.length, ranking_limit);
   for(let i = 0; i < ranking_shopping_queen.length; i++)
   {
@@ -288,7 +287,6 @@ function display_shopping_queen_data()
 
 function display_most_identified_dead_data()
 {
-  let ranking_limit = 10;
     init_ranking("identified_bodies_ranking", ranking_shopping_queen.length, ranking_limit);
 
   for(let i = 0; i < ranking_most_identified_bodies.length; i++)
@@ -325,23 +323,28 @@ function style_star(star_target, rank)
 {
   let star_color = "black-text";
   let rank_size = "20px";
-  switch(parseInt(rank)) {
-    case 0:
-      star_color = "yellow-text";
-      rank_size = "35px";
-      break;
-    case 1:
-      star_color = "grey-text";
-      rank_size = "30px";
-      break;
-    case 2:
-      star_color = "amber-text";
-      rank_size = "25px";
-      break;
-    default:
-      star_color = "black-text";
-      rank_size = "20px";
-  }          
+  rank = parseInt(rank);
+  if(rank <= 0)
+  {
+    star_color = "yellow-text";
+    rank_size = "35px";
+  }
+  else if(rank >=1 && rank <= 2)
+  {
+    star_color = "grey-text";
+    rank_size = "30px";
+  }
+  else if(rank >=3 && rank <= 5)
+  {
+    star_color = "amber-text";
+    rank_size = "25px";
+  }
+  else
+  {
+    star_color = "black-text";
+    rank_size = "20px";
+  }
+  
   star_target.classList.add(star_color);
   star_target.style.fontSize = rank_size;
 }
