@@ -181,7 +181,7 @@ function init_ranking(target_id, number_of_players, limit)
 
 function display_top_killed_traitor_data()
 {
-  let ranking_limit = 7;
+  let ranking_limit = 10;
   init_ranking("most_killed_traitor", ranking_top_traitor.length, ranking_limit);
 
   for(let i = 0; i < ranking_top_traitor.length; i++)
@@ -217,7 +217,7 @@ function display_top_killed_traitor_data()
 
 function display_top_traitor_data()
 {
-  let ranking_limit = 7;
+  let ranking_limit = 10;
   init_ranking("most_killed_ranking", ranking_top_traitor.length, ranking_limit);
 
   for(let i = 0; i < ranking_top_traitor.length; i++)
@@ -254,7 +254,7 @@ function display_top_traitor_data()
 
 function display_shopping_queen_data()
 {
-  let ranking_limit = 7;
+  let ranking_limit = 10;
   init_ranking("shopping_queen_ranking", ranking_shopping_queen.length, ranking_limit);
   for(let i = 0; i < ranking_shopping_queen.length; i++)
   {
@@ -288,7 +288,7 @@ function display_shopping_queen_data()
 
 function display_most_identified_dead_data()
 {
-  let ranking_limit = 7;
+  let ranking_limit = 10;
     init_ranking("identified_bodies_ranking", ranking_shopping_queen.length, ranking_limit);
 
   for(let i = 0; i < ranking_most_identified_bodies.length; i++)
